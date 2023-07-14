@@ -7,7 +7,6 @@ public class LineHandler implements Observer {
         for (int i = 0; i < size; i++) {
             Dot d = DataSource.getInstance().get(i);
             // TODO: CALUCLATE LINE (x dist only)
-            System.out.println("line");
 
         }
     }

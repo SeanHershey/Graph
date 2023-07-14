@@ -11,6 +11,7 @@ public class ClusterHandler implements Observer {
             // TODO: CALCULATE CLUSTER
         }
     }
+    
     @Override
     public void update(Observable o, Object arg) {
         calculate();
