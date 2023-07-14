@@ -50,17 +50,17 @@ public class App extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Run")) {
             System.out.print("run");
-            if (cluster) { System.out.print(" with line"); }
-            if (line) { System.out.print(" with cluster"); }
+            if (line) { System.out.print(" with line"); }
+            if (cluster) { System.out.print(" with cluster"); }
             System.out.println(" ");
         }
         else if (e.getActionCommand().equals("Cluster - K-means")) {
-            if (line) { line = false; }
-            else { line = true; }
-        }
-        else if (e.getActionCommand().equals("Line - Nearest Neighbor")) {
             if (cluster) { cluster = false; }
             else { cluster = true; }
+        }
+        else if (e.getActionCommand().equals("Line - Nearest Neighbor")) {
+            if (line) { line = false; }
+            else { line = true; }
         }
     }
 }
