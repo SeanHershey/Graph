@@ -7,6 +7,9 @@ public class App extends JFrame implements ActionListener
 {
     private boolean cluster = false;
     private boolean line = false;
+    JPanel centerPanel = new WorkArea();
+    private int option;
+
     public static void main(String[] args) throws Exception {
         App win = new App();
         win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,7 +34,7 @@ public class App extends JFrame implements ActionListener
         westPanel.add(b1);
         
         // WorkArea
-        JPanel centerPanel = new WorkArea();
+        centerPanel = new WorkArea();
         centerPanel.setBackground(Color.GRAY);
 
         // Add Panels  
@@ -49,10 +52,12 @@ public class App extends JFrame implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Run")) {
-            System.out.print("run");
-            if (line) { System.out.print(" with line"); }
-            if (cluster) { System.out.print(" with cluster"); }
-            System.out.println(" ");
+            if (line && cluster) { option = 3; }
+            else if (line) { option = 2; }
+            else if (cluster) { option = 1; }
+            else {option = 0;}
+            ((WorkArea) centerPanel).setOption(option);
+            repaint();
         }
         else if (e.getActionCommand().equals("Cluster - K-means")) {
             if (cluster) { cluster = false; }
@@ -63,4 +68,17 @@ public class App extends JFrame implements ActionListener
             else { line = true; }
         }
     }
+
+    // public int getOption() {
+    //     if (line && cluster) {
+    //         return 3;
+    //     }
+    //     else if (cluster) {
+    //         return 2;
+    //     }
+    //     else if (line) {
+    //         return 1;
+    //     }
+    //     return 0;
+    // }
 }

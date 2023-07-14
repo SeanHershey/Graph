@@ -10,6 +10,7 @@ public class WorkArea extends JPanel implements MouseListener, MouseMotionListen
 {
     private int x = -1;
     private int y = -1;
+    private int option;
     DataSource d = DataSource.getInstance();
 
     public void startTimer() {
@@ -38,7 +39,7 @@ public class WorkArea extends JPanel implements MouseListener, MouseMotionListen
             int size = DataSource.getInstance().getSize();
             for (int i = 0; i < size; i++) {
                 Dot d = DataSource.getInstance().get(i);
-                d.paint(g2);
+                d.paint(g2, option);
             }
         }
     }
@@ -47,6 +48,10 @@ public class WorkArea extends JPanel implements MouseListener, MouseMotionListen
         x = e.getX();
         y = e.getY();
         repaint();
+    }
+
+    public void setOption(int i) {
+        option = i;
     }
 
     @Override
