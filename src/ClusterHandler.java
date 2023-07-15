@@ -15,6 +15,7 @@ public class ClusterHandler implements Observer {
         List<Dot> blue = new ArrayList<Dot>();
         List<Dot> orange = new ArrayList<Dot>();
 
+
         if(size ==2 ) {
             Dot centriod_2 = new Dot(dots.get(1).getX(), dots.get(1).getY());
             Dot centriod_1 = new Dot(dots.get(0).getX(), dots.get(0).getY());
@@ -30,13 +31,25 @@ public class ClusterHandler implements Observer {
 
             if(dist_1 > dist_2){
                 blue.add(dots.get(i));
+                System.out.println("BLUE ADD");
 
             }
 
             else {
                 orange.add(dots.get(i));
+                System.out.println("ORANGE ADD");
             }
-        }}
+
+        }
+        for(int i = 0; i<blue.size(); i++){
+        blue.get(i).setColor(Color.BLUE);
+        System.out.println("BLUE");
+        }
+        for(int i = 0; i<blue.size(); i++){
+                orange.get(i).setColor(Color.ORANGE);
+            System.out.println("ORANGE");
+        }
+        }
 
 
 
