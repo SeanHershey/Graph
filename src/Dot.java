@@ -13,13 +13,21 @@ public class Dot {
         this.y = y;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     public void setColor(Color c) {
         color = c;
     }
 
-    public void setLine(int Lx, int Ly) {
-        lineX = Lx;
-        lineY = Ly;
+    public void setLine(Dot d) {
+        lineX = d.getX();
+        lineY = d.getY();
     }
 
     public void paint(Graphics2D g2, int option) {
