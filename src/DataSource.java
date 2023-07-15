@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Observable;
 import java.util.Stack;
 
@@ -26,5 +27,9 @@ public class DataSource extends Observable {
 
     public int getSize() {
         return points.size();
+    }
+
+    public List<Dot> getList(){
+        return this.points;
     }
 }

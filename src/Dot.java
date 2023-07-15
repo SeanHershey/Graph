@@ -20,5 +20,11 @@ public class Dot {
         g2.setColor(color);
         g2.fillOval(x, y, 10, 10);
     }
+    public int getX(){
+        return this.x;
+    }
+    public int getY(){
+        return this.y;
+    }
 
 }
