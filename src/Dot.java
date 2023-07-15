@@ -13,14 +13,6 @@ public class Dot {
         this.y = y;
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
     public void setColor(Color c) {
         color = c;
     }
