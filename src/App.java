@@ -68,17 +68,4 @@ public class App extends JFrame implements ActionListener
             else { line = true; }
         }
     }
-
-    // public int getOption() {
-    //     if (line && cluster) {
-    //         return 3;
-    //     }
-    //     else if (cluster) {
-    //         return 2;
-    //     }
-    //     else if (line) {
-    //         return 1;
-    //     }
-    //     return 0;
-    // }
 }
