@@ -1,16 +1,68 @@
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.List;
 
 public class LineHandler implements Observer {
-    
     private void calculate() {
         int size = DataSource.getInstance().getSize();
-        for (int i = 1; i < size; i++) {
-            Dot dA = DataSource.getInstance().get(i);
-            Dot dB = DataSource.getInstance().get(i-1);
-            // TODO: CALUCLATE LINE (x dist only)
-            int distanceX = dB.getX()-dA.getX();
+        Set<Dot> doneDot = new HashSet<>();
+        List<Dot> dots = DataSource.getInstance().getList();
+
+        for(int i = 1; i < size - 1; i++){
+            Dot minXdot = null;
+            for(Dot dot: dots){
+                if(minXdot == null){
+                    minXdot = dot;
+                }
+                if(dot.getX() < minXdot.getX() && !doneDot.contains(dot)){
+                    minXdot = dot;
+                }
+            }
+            doneDot.add(minXdot);
+            Dot secondMinXdot = null;
+            for(Dot dot: dots){
+                if(secondMinXdot == null){
+                    secondMinXdot = dot;
+                }
+                if(dot.getX() < secondMinXdot.getX() && !doneDot.contains(dot)){
+                    minXdot = dot;
+                }
+            }
+            minXdot.setLine(minXdot);
+
         }
+        
+
+        // for(int i = 1; i < size -1; i++){
+        //     Dot curDot = DataSource.getInstance().get(i);
+        //     if(curDot.getX() < curMinX && !doneDot.contains(curDot)){
+        //         minXdot = curDot;
+        //     }
+        // }
+
+
+
+
+
+        // for (int i = 1; i < size; i++) {
+        //     Dot dA = DataSource.getInstance().get(i);
+        //     Dot minDot = null;
+        //     int minDistance = Integer.MAX_VALUE;
+
+        //     for(int j = 0; j < i; j++){
+        //         Dot dB = DataSource.getInstance().get(j);
+        //         int distanceX = dB.getX()-dA.getX();
+        //         if (distanceX < minDistance){
+        //             minDistance = distanceX;
+        //             minDot = dB;
+        //         }
+        //     }
+        //     if(minDot != null){
+        //         dA.setLine(minDot);
+        //     }
+        // }
     }
 
     @Override
