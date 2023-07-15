@@ -20,8 +20,6 @@ public class ClusterHandler implements Observer {
             Dot centriod_2 = new Dot(dots.get(1).getX(), dots.get(1).getY());
             Dot centriod_1 = new Dot(dots.get(0).getX(), dots.get(0).getY());
 
-
-
         for(int i = 1; i<size - 2; i++){
             double dist_1 = Math.sqrt(Math.pow(dots.get(i).getX() - centriod_1.getX(), 2) +
                     Math.pow(dots.get(i).getY() - centriod_1.getY(), 2));

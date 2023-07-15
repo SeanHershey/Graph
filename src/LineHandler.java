@@ -1,37 +1,45 @@
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Set;
+import java.awt.Color;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 
 public class LineHandler implements Observer {
     private void calculate() {
         int size = DataSource.getInstance().getSize();
-        Set<Dot> doneDot = new HashSet<>();
+        LinkedList<Dot> doneDot = new LinkedList<Dot>();
         List<Dot> dots = DataSource.getInstance().getList();
 
-        for(int i = 1; i < size - 1; i++){
+        for(int i = 0; i < size - 1; i++){
             Dot minXdot = null;
             for(Dot dot: dots){
-                if(minXdot == null){
-                    minXdot = dot;
-                }
-                if(dot.getX() < minXdot.getX() && !doneDot.contains(dot)){
-                    minXdot = dot;
+                if (!doneDot.contains(dot))
+                {
+                    if(minXdot == null){
+                        minXdot = dot;
+                    }
+                    if(dot.getX() < minXdot.getX()){
+                        minXdot = dot;
+                    }
                 }
             }
             doneDot.add(minXdot);
+
             Dot secondMinXdot = null;
             for(Dot dot: dots){
-                if(secondMinXdot == null){
-                    secondMinXdot = dot;
-                }
-                if(dot.getX() < secondMinXdot.getX() && !doneDot.contains(dot)){
-                    minXdot = dot;
+                if (!doneDot.contains(dot))
+                {
+                    if(secondMinXdot == null){
+                        secondMinXdot = dot;
+                    }
+                    if(dot.getX() < secondMinXdot.getX()){
+                        secondMinXdot = dot;
+                    }
                 }
             }
-            minXdot.setLine(minXdot);
-
+            minXdot.setLine(secondMinXdot);
         }
         
 
