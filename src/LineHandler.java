@@ -5,9 +5,11 @@ public class LineHandler implements Observer {
     
     private void calculate() {
         int size = DataSource.getInstance().getSize();
-        for (int i = 0; i < size; i++) {
-            Dot d = DataSource.getInstance().get(i);
+        for (int i = 1; i < size; i++) {
+            Dot dA = DataSource.getInstance().get(i);
+            Dot dB = DataSource.getInstance().get(i-1);
             // TODO: CALUCLATE LINE (x dist only)
+            int distanceX = dB.getX()-dA.getX();
         }
     }
 
