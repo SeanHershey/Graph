@@ -8,6 +8,8 @@ import java.awt.event.MouseMotionListener;
 
 public class WorkArea extends JPanel implements MouseListener, MouseMotionListener, ActionListener
 {
+    private int oldX = -1;
+    private int oldY = -1;
     private int x = -1;
     private int y = -1;
     private int option;
@@ -35,7 +37,12 @@ public class WorkArea extends JPanel implements MouseListener, MouseMotionListen
         super.setBackground(Color.WHITE);
 
         if (x != -1) {
-            d.add(x, y);
+            if (x != oldX || y != oldY) {
+                d.add(x, y);
+                oldX = x;
+                oldY = y;
+            }
+
             int size = DataSource.getInstance().getSize();
             for (int i = 0; i < size; i++) {
                 Dot d = DataSource.getInstance().get(i);
