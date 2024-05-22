@@ -27,7 +27,7 @@ public class App extends JFrame implements ActionListener
         GridLayout grid = new GridLayout(10,1);
         JButton b1 = new JButton("Run");
         JCheckBox c1 = new JCheckBox("Cluster - K-means");
-        JCheckBox c2 = new JCheckBox("Line");
+        JCheckBox c2 = new JCheckBox("Line - Connect");
         westPanel.setLayout(grid);
         westPanel.add(c1);
         westPanel.add(c2);
